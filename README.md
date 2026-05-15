@@ -1,11 +1,12 @@
-# Auto PR Review Test Project
+# Clinic Intake Demo
 
-This is a tiny Node.js project designed for testing automated pull request review workflows.
+This is a small Node.js healthcare admin project designed for testing automated pull request review workflows.
 
 ## What it does
 
-- Normalizes a change title
-- Builds a small review summary
+- Normalizes patient and clinic input
+- Builds appointment reminders and visit packets
+- Flags missing intake details
 - Ships with a built-in test suite
 
 ## Run it

@@ -1,8 +1,8 @@
 {
-  "name": "auto-pr-review-test-project",
+  "name": "clinic-intake-demo",
   "version": "1.0.0",
   "private": true,
-  "description": "A tiny project for testing automated PR review workflows.",
+  "description": "A small healthcare admin demo for testing automated PR review workflows.",
   "type": "commonjs",
   "scripts": {
     "test": "node --test",

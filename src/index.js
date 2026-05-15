@@ -1,9 +1,10 @@
-const { buildReviewSummary } = require('./review-demo');
+const { buildVisitPacket } = require('./clinic-intake');
 
-const summary = buildReviewSummary({
-  title: '  Auto PR Review demo  ',
-  filesChanged: ['src/review-demo.js', 'test/review-demo.test.js'],
-  testsPassing: true
+const packet = buildVisitPacket({
+  patientName: '  Jordan   Lee  ',
+  clinicName: 'Northside Family Clinic',
+  appointmentDate: '2026-05-18T14:30:00',
+  formsSubmitted: ['insurance', 'consent']
 });
 
-console.log(JSON.stringify(summary, null, 2));
+console.log(JSON.stringify(packet, null, 2));
