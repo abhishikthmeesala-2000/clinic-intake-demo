@@ -4,7 +4,8 @@ const assert = require('node:assert/strict');
 const {
   buildVisitPacket,
   formatAppointmentDate,
-  normalizePatientName
+  normalizePatientName,
+  summarizeIntakeStatus
 } = require('../src/clinic-intake');
 
 test('normalizePatientName trims and collapses whitespace', () => {
@@ -36,6 +37,17 @@ test('buildVisitPacket reports the expected shape', () => {
     appointmentTime: formatAppointmentDate('2026-05-18T14:30:00'),
     formsSubmitted: ['insurance', 'consent'],
     missingForms: ['id'],
+    intakeStatus: 'needs follow-up',
+    isReadyForCheckIn: false,
+    nextStep: 'Collect the missing forms: id.',
     reminder: 'Jordan Lee, your visit at Northside Family Clinic is scheduled for ' + formatAppointmentDate('2026-05-18T14:30:00') + '.'
+  });
+});
+
+test('summarizeIntakeStatus marks complete intake as ready', () => {
+  assert.deepEqual(summarizeIntakeStatus([]), {
+    intakeStatus: 'ready',
+    isReadyForCheckIn: true,
+    nextStep: 'All intake forms are complete.'
   });
 });

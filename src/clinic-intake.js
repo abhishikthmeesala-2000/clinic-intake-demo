@@ -20,6 +20,22 @@ function formatAppointmentDate(appointmentDate) {
   });
 }
 
+function summarizeIntakeStatus(missingForms) {
+  if (!Array.isArray(missingForms) || missingForms.length === 0) {
+    return {
+      intakeStatus: 'ready',
+      isReadyForCheckIn: true,
+      nextStep: 'All intake forms are complete.'
+    };
+  }
+
+  return {
+    intakeStatus: 'needs follow-up',
+    isReadyForCheckIn: false,
+    nextStep: `Collect the missing forms: ${missingForms.join(', ')}.`
+  };
+}
+
 function buildVisitPacket({
   patientName,
   clinicName,
@@ -39,6 +55,7 @@ function buildVisitPacket({
     appointmentTime: formatAppointmentDate(appointmentDate),
     formsSubmitted: [...submittedForms],
     missingForms,
+    ...summarizeIntakeStatus(missingForms),
     reminder: `${normalizedPatientName}, your visit at ${normalizedClinicName} is scheduled for ${formatAppointmentDate(appointmentDate)}.`
   };
 }
@@ -46,5 +63,6 @@ function buildVisitPacket({
 module.exports = {
   buildVisitPacket,
   formatAppointmentDate,
-  normalizePatientName
+  normalizePatientName,
+  summarizeIntakeStatus
 };
