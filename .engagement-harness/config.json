@@ -1,0 +1,71 @@
+{
+  "client": {
+    "name": "Testing ",
+    "engagement": "PR Review Testing "
+  },
+  "review": {
+    "confidenceThreshold": 0.8,
+    "severityThreshold": "low",
+    "requireVerifierApproval": true
+  },
+  "agents": {
+    "enabled": [
+      "reviewer",
+      "security",
+      "domain-policy",
+      "testing",
+      "data-architecture",
+      "sre-observability",
+      "design-principles",
+      "pr-intent-gap",
+      "remediation"
+    ]
+  },
+  "models": {
+    "reviewer": "anthropic-claude-2",
+    "security": "anthropic-claude-2",
+    "domain-policy": "anthropic-claude-2",
+    "testing": "anthropic-claude-2",
+    "data-architecture": "anthropic-claude-2",
+    "sre-observability": "anthropic-claude-2",
+    "design-principles": "anthropic-claude-2",
+    "pr-intent-gap": "anthropic-claude-2",
+    "remediation": "anthropic-claude-2"
+  },
+  "providers": {
+    "anthropic": {}
+  },
+  "context": {
+    "ignoredPaths": [
+      "**/*.lock",
+      "**/*.lockb",
+      "**/.engagement-harness/**",
+      "**/.next/**",
+      "**/build/**",
+      "**/coverage/**",
+      "**/dist/**",
+      "**/node_modules/**"
+    ],
+    "maxFiles": 30,
+    "maxTokens": 80000
+  },
+  "ci": {
+    "blockOnPolicy": false,
+    "postComments": true,
+    "artifactsOnly": true
+  },
+  "alm": {
+    "platform": "github"
+  },
+  "feedback": {
+    "enabled": true
+  },
+  "reports": {
+    "formats": [
+      "json",
+      "markdown",
+      "html"
+    ],
+    "outputDir": ".engagement-harness/reports"
+  }
+}
