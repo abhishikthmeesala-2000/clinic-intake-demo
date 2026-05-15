@@ -40,6 +40,9 @@ jobs:
           sed -i '/"private": true,/d' package.json
           pnpm link --global
 
+      - name: Fetch base branch
+        run: git fetch origin main:main
+
       - name: Run review
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
