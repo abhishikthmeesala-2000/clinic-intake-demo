@@ -22,18 +22,20 @@
     ]
   },
   "models": {
-    "reviewer": "anthropic-claude-2",
-    "security": "anthropic-claude-2",
-    "domain-policy": "anthropic-claude-2",
-    "testing": "anthropic-claude-2",
-    "data-architecture": "anthropic-claude-2",
-    "sre-observability": "anthropic-claude-2",
-    "design-principles": "anthropic-claude-2",
-    "pr-intent-gap": "anthropic-claude-2",
-    "remediation": "anthropic-claude-2"
+    "reviewer": "anthropic",
+    "security": "anthropic",
+    "domain-policy": "anthropic",
+    "testing": "anthropic",
+    "data-architecture": "anthropic",
+    "sre-observability": "anthropic",
+    "design-principles": "anthropic",
+    "pr-intent-gap": "anthropic",
+    "remediation": "anthropic"
   },
   "providers": {
-    "anthropic": {}
+    "anthropic": {
+      "model": "claude-haiku-4-5-20251001"
+    }
   },
   "context": {
     "ignoredPaths": [
